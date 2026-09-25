@@ -1,0 +1,1837 @@
+{
+  "format": "status-line-ladder/0",
+  "version": 0,
+  "igent": "sh-0001",
+  "engine": {
+    "urge_version": "0.1.1",
+    "wasm_sha256": "1a33e2c60f33eb1afef6350365e9d257a3dfaae00d1a6870775e648a1c8a433d"
+  },
+  "events": [
+    {
+      "v": 0,
+      "t": 1790060401000,
+      "igent": "sh-0001",
+      "session": null,
+      "seq": 1,
+      "agent": "oonia",
+      "class": "noevo",
+      "verb": "orchestrating",
+      "object": "sign-on",
+      "rung": "W0",
+      "step": "handshake",
+      "verdict": null,
+      "text": null
+    },
+    {
+      "v": 0,
+      "t": 1790060402700,
+      "igent": "sh-0001",
+      "session": null,
+      "seq": 2,
+      "agent": "janus",
+      "class": "noevo",
+      "verb": "verifying",
+      "object": "secure connection",
+      "rung": "W0",
+      "step": "handshake",
+      "verdict": null,
+      "text": null
+    },
+    {
+      "v": 0,
+      "t": 1790060405100,
+      "igent": "sh-0001",
+      "session": null,
+      "seq": 3,
+      "agent": "janus",
+      "class": "noevo",
+      "verb": "verified",
+      "object": "secure connection",
+      "rung": "W0",
+      "step": "handshake",
+      "verdict": {
+        "valid": true,
+        "confidence": 255,
+        "expr": "must tls_established and must device_registered",
+        "notation": "O(tls_established) ∧ O(device_registered)",
+        "trace": "sha256:a9174bcca4a6c522"
+      },
+      "text": null,
+      "slots": {
+        "tls_established": true,
+        "device_registered": true
+      },
+      "trace_entries": [
+        {
+          "stage": "Tokenization",
+          "text": "tokenizing input",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection",
+          "text": "detecting active paradigms",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Boolean",
+          "text": "boolean",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Modal",
+          "text": "modal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Epistemic",
+          "text": "epistemic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Deontic",
+          "text": "deontic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Temporal",
+          "text": "temporal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Fuzzy",
+          "text": "fuzzy",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Probabilistic",
+          "text": "probabilistic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Paraconsistent",
+          "text": "paraconsistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "AstConstruction",
+          "text": "building AST",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting",
+          "text": "routing to engines",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "BooleanEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "decomposing connective into paradigm fragments",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-system validation",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "VerdictSynthesis",
+          "text": "confidence threshold met",
+          "outcome": "Permitted"
+        }
+      ],
+      "conflict": null,
+      "script_agrees": true
+    },
+    {
+      "v": 0,
+      "t": 1790060406100,
+      "igent": "sh-0001",
+      "session": null,
+      "seq": 4,
+      "agent": "janus",
+      "class": "noevo",
+      "verb": "verified",
+      "object": "bio-signature",
+      "rung": "W0",
+      "step": "bio-auth",
+      "verdict": {
+        "valid": true,
+        "confidence": 255,
+        "expr": "must bio_signature_fresh and always bio_signature_bound",
+        "notation": "O(bio_signature_fresh) ∧ G(bio_signature_bound)",
+        "trace": "sha256:01a02ef62b872e98"
+      },
+      "text": null,
+      "slots": {
+        "bio_signature_fresh": true,
+        "bio_signature_bound": true
+      },
+      "trace_entries": [
+        {
+          "stage": "Tokenization",
+          "text": "tokenizing input",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection",
+          "text": "detecting active paradigms",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Boolean",
+          "text": "boolean",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Modal",
+          "text": "modal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Epistemic",
+          "text": "epistemic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Deontic",
+          "text": "deontic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Temporal",
+          "text": "temporal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Fuzzy",
+          "text": "fuzzy",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Probabilistic",
+          "text": "probabilistic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Paraconsistent",
+          "text": "paraconsistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "AstConstruction",
+          "text": "building AST",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting",
+          "text": "routing to engines",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "BooleanEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "decomposing connective into paradigm fragments",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Temporal",
+          "text": "TemporalEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-system validation",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "VerdictSynthesis",
+          "text": "confidence threshold met",
+          "outcome": "Permitted"
+        }
+      ],
+      "conflict": null,
+      "script_agrees": true
+    },
+    {
+      "v": 0,
+      "t": 1790060407800,
+      "igent": "sh-0001",
+      "session": null,
+      "seq": 5,
+      "agent": "curator",
+      "class": "noevo",
+      "verb": "recorded",
+      "object": "session 5c1e7a90",
+      "rung": "W0",
+      "step": "session-record",
+      "verdict": null,
+      "text": null
+    },
+    {
+      "v": 0,
+      "t": 1790060410200,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 6,
+      "agent": "hermes",
+      "class": "noevo",
+      "verb": "says",
+      "object": null,
+      "rung": "W0",
+      "step": "report",
+      "verdict": null,
+      "text": "You are connected. The head is on and verified."
+    },
+    {
+      "v": 0,
+      "t": 1790060411200,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 7,
+      "agent": "janus",
+      "class": "noevo",
+      "verb": "verified",
+      "object": "device bp-cuff-02",
+      "rung": "W1",
+      "step": "device-check",
+      "verdict": {
+        "valid": true,
+        "confidence": 255,
+        "expr": "must device_registered and must device_calibrated",
+        "notation": "O(device_registered) ∧ O(device_calibrated)",
+        "trace": "sha256:a9174bcca4a6c522"
+      },
+      "text": null,
+      "slots": {
+        "device_registered": true,
+        "device_calibrated": true
+      },
+      "trace_entries": [
+        {
+          "stage": "Tokenization",
+          "text": "tokenizing input",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection",
+          "text": "detecting active paradigms",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Boolean",
+          "text": "boolean",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Modal",
+          "text": "modal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Epistemic",
+          "text": "epistemic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Deontic",
+          "text": "deontic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Temporal",
+          "text": "temporal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Fuzzy",
+          "text": "fuzzy",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Probabilistic",
+          "text": "probabilistic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Paraconsistent",
+          "text": "paraconsistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "AstConstruction",
+          "text": "building AST",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting",
+          "text": "routing to engines",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "BooleanEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "decomposing connective into paradigm fragments",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-system validation",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "VerdictSynthesis",
+          "text": "confidence threshold met",
+          "outcome": "Permitted"
+        }
+      ],
+      "conflict": null,
+      "script_agrees": true
+    },
+    {
+      "v": 0,
+      "t": 1790060412900,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 8,
+      "agent": "curator",
+      "class": "noevo",
+      "verb": "recorded",
+      "object": "Observation: blood pressure 148/92",
+      "rung": "W1",
+      "step": "observation",
+      "verdict": null,
+      "text": null
+    },
+    {
+      "v": 0,
+      "t": 1790060415300,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 9,
+      "agent": "janus",
+      "class": "noevo",
+      "verb": "denied",
+      "object": "device air-sensor-x9",
+      "rung": "W1",
+      "step": "device-check",
+      "verdict": {
+        "valid": false,
+        "confidence": 170,
+        "expr": "must device_registered and must device_calibrated",
+        "notation": "O(device_registered) ∧ O(device_calibrated)",
+        "trace": "sha256:b52f7d463eaadcb3"
+      },
+      "text": null,
+      "slots": {
+        "device_registered": false,
+        "device_calibrated": true
+      },
+      "trace_entries": [
+        {
+          "stage": "Tokenization",
+          "text": "tokenizing input",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection",
+          "text": "detecting active paradigms",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Boolean",
+          "text": "boolean",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Modal",
+          "text": "modal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Epistemic",
+          "text": "epistemic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Deontic",
+          "text": "deontic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Temporal",
+          "text": "temporal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Fuzzy",
+          "text": "fuzzy",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Probabilistic",
+          "text": "probabilistic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Paraconsistent",
+          "text": "paraconsistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "AstConstruction",
+          "text": "building AST",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting",
+          "text": "routing to engines",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "BooleanEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "decomposing connective into paradigm fragments",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-system validation",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "VerdictSynthesis",
+          "text": "confidence threshold not met — deny",
+          "outcome": "Denied"
+        }
+      ],
+      "conflict": null,
+      "script_agrees": true
+    },
+    {
+      "v": 0,
+      "t": 1790060416300,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 10,
+      "agent": "hermes",
+      "class": "noevo",
+      "verb": "says",
+      "object": null,
+      "rung": "W1",
+      "step": "report",
+      "verdict": null,
+      "text": "A sensor in the room is not on the register. Its readings are not being used."
+    },
+    {
+      "v": 0,
+      "t": 1790060418000,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 11,
+      "agent": "janus",
+      "class": "noevo",
+      "verb": "verified",
+      "object": "articulation: turn to the person",
+      "rung": "W1",
+      "step": "threshold",
+      "verdict": {
+        "valid": true,
+        "confidence": 255,
+        "expr": "must reading_above_threshold and must person_present and must_not privacy_mode",
+        "notation": "O(reading_above_threshold) ∧ O(person_present) ∧ F(privacy_mode)",
+        "trace": "sha256:4ca7b409adb4d243"
+      },
+      "text": null,
+      "slots": {
+        "reading_above_threshold": true,
+        "person_present": true,
+        "privacy_mode": false
+      },
+      "trace_entries": [
+        {
+          "stage": "Tokenization",
+          "text": "tokenizing input",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection",
+          "text": "detecting active paradigms",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Boolean",
+          "text": "boolean",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Modal",
+          "text": "modal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Epistemic",
+          "text": "epistemic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Deontic",
+          "text": "deontic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Temporal",
+          "text": "temporal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Fuzzy",
+          "text": "fuzzy",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Probabilistic",
+          "text": "probabilistic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Paraconsistent",
+          "text": "paraconsistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "AstConstruction",
+          "text": "building AST",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting",
+          "text": "routing to engines",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "BooleanEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "decomposing connective into paradigm fragments",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "BooleanEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "decomposing connective into paradigm fragments",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-system validation",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "VerdictSynthesis",
+          "text": "confidence threshold met",
+          "outcome": "Permitted"
+        }
+      ],
+      "conflict": null,
+      "script_agrees": true
+    },
+    {
+      "v": 0,
+      "t": 1790060420400,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 12,
+      "agent": "oonia",
+      "class": "noevo",
+      "verb": "routed",
+      "object": "threshold event to articulation",
+      "rung": "W1",
+      "step": "threshold",
+      "verdict": null,
+      "text": null
+    },
+    {
+      "v": 0,
+      "t": 1790060421400,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 13,
+      "agent": "hermes",
+      "class": "noevo",
+      "verb": "says",
+      "object": null,
+      "rung": "W1",
+      "step": "report",
+      "verdict": null,
+      "text": "Your blood pressure is high. I have turned to you; please sit still for a second reading."
+    },
+    {
+      "v": 0,
+      "t": 1790060423100,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 14,
+      "agent": "janus",
+      "class": "noevo",
+      "verb": "verified",
+      "object": "Helios workflow: reminder",
+      "rung": "W2",
+      "step": "compose",
+      "verdict": {
+        "valid": true,
+        "confidence": 255,
+        "expr": "must workflow_from_approved_parts and must_not unverified_step",
+        "notation": "O(workflow_from_approved_parts) ∧ F(unverified_step)",
+        "trace": "sha256:a9174bcca4a6c522"
+      },
+      "text": null,
+      "slots": {
+        "workflow_from_approved_parts": true,
+        "unverified_step": false
+      },
+      "trace_entries": [
+        {
+          "stage": "Tokenization",
+          "text": "tokenizing input",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection",
+          "text": "detecting active paradigms",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Boolean",
+          "text": "boolean",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Modal",
+          "text": "modal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Epistemic",
+          "text": "epistemic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Deontic",
+          "text": "deontic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Temporal",
+          "text": "temporal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Fuzzy",
+          "text": "fuzzy",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Probabilistic",
+          "text": "probabilistic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Paraconsistent",
+          "text": "paraconsistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "AstConstruction",
+          "text": "building AST",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting",
+          "text": "routing to engines",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "BooleanEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "decomposing connective into paradigm fragments",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-system validation",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "VerdictSynthesis",
+          "text": "confidence threshold met",
+          "outcome": "Permitted"
+        }
+      ],
+      "conflict": null,
+      "script_agrees": true
+    },
+    {
+      "v": 0,
+      "t": 1790060425500,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 15,
+      "agent": "helios",
+      "class": "evo",
+      "verb": "composed",
+      "object": "reminder workflow: metformin, 08:00, with food",
+      "rung": "W2",
+      "step": "compose",
+      "verdict": {
+        "valid": true,
+        "confidence": 255,
+        "expr": "must workflow_from_approved_parts and must_not unverified_step",
+        "notation": "O(workflow_from_approved_parts) ∧ F(unverified_step)",
+        "trace": "sha256:a9174bcca4a6c522",
+        "by": 14
+      },
+      "text": null
+    },
+    {
+      "v": 0,
+      "t": 1790060426500,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 16,
+      "agent": "janus",
+      "class": "noevo",
+      "verb": "verified",
+      "object": "Athena advice: metformin timing",
+      "rung": "W2",
+      "step": "advise",
+      "verdict": {
+        "valid": true,
+        "confidence": 255,
+        "expr": "must within_medication_request and must dose_matches_request",
+        "notation": "O(within_medication_request) ∧ O(dose_matches_request)",
+        "trace": "sha256:a9174bcca4a6c522"
+      },
+      "text": null,
+      "slots": {
+        "within_medication_request": true,
+        "dose_matches_request": true
+      },
+      "trace_entries": [
+        {
+          "stage": "Tokenization",
+          "text": "tokenizing input",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection",
+          "text": "detecting active paradigms",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Boolean",
+          "text": "boolean",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Modal",
+          "text": "modal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Epistemic",
+          "text": "epistemic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Deontic",
+          "text": "deontic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Temporal",
+          "text": "temporal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Fuzzy",
+          "text": "fuzzy",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Probabilistic",
+          "text": "probabilistic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Paraconsistent",
+          "text": "paraconsistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "AstConstruction",
+          "text": "building AST",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting",
+          "text": "routing to engines",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "BooleanEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "decomposing connective into paradigm fragments",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-system validation",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "VerdictSynthesis",
+          "text": "confidence threshold met",
+          "outcome": "Permitted"
+        }
+      ],
+      "conflict": null,
+      "script_agrees": true
+    },
+    {
+      "v": 0,
+      "t": 1790060428200,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 17,
+      "agent": "athena",
+      "class": "evo",
+      "verb": "advises",
+      "object": "metformin 500 mg with breakfast",
+      "rung": "W2",
+      "step": "advise",
+      "verdict": {
+        "valid": true,
+        "confidence": 255,
+        "expr": "must within_medication_request and must dose_matches_request",
+        "notation": "O(within_medication_request) ∧ O(dose_matches_request)",
+        "trace": "sha256:a9174bcca4a6c522",
+        "by": 16
+      },
+      "text": null
+    },
+    {
+      "v": 0,
+      "t": 1790060430600,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 18,
+      "agent": "janus",
+      "class": "noevo",
+      "verb": "denied",
+      "object": "show reminder now (07:12)",
+      "rung": "W2",
+      "step": "show",
+      "verdict": {
+        "valid": false,
+        "confidence": 170,
+        "expr": "must time_in_window and must person_present",
+        "notation": "O(time_in_window) ∧ O(person_present)",
+        "trace": "sha256:b52f7d463eaadcb3"
+      },
+      "text": null,
+      "slots": {
+        "time_in_window": false,
+        "person_present": true
+      },
+      "trace_entries": [
+        {
+          "stage": "Tokenization",
+          "text": "tokenizing input",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection",
+          "text": "detecting active paradigms",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Boolean",
+          "text": "boolean",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Modal",
+          "text": "modal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Epistemic",
+          "text": "epistemic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Deontic",
+          "text": "deontic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Temporal",
+          "text": "temporal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Fuzzy",
+          "text": "fuzzy",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Probabilistic",
+          "text": "probabilistic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Paraconsistent",
+          "text": "paraconsistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "AstConstruction",
+          "text": "building AST",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting",
+          "text": "routing to engines",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "BooleanEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "decomposing connective into paradigm fragments",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-system validation",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "VerdictSynthesis",
+          "text": "confidence threshold not met — deny",
+          "outcome": "Denied"
+        }
+      ],
+      "conflict": null,
+      "script_agrees": true
+    },
+    {
+      "v": 0,
+      "t": 1790060431600,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 19,
+      "agent": "hermes",
+      "class": "noevo",
+      "verb": "says",
+      "object": null,
+      "rung": "W2",
+      "step": "report",
+      "verdict": null,
+      "text": "Not yet: the metformin reminder is for 08:00."
+    },
+    {
+      "v": 0,
+      "t": 1790060433300,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 20,
+      "agent": "janus",
+      "class": "noevo",
+      "verb": "verified",
+      "object": "show reminder now (08:00)",
+      "rung": "W2",
+      "step": "show",
+      "verdict": {
+        "valid": true,
+        "confidence": 255,
+        "expr": "must time_in_window and must person_present",
+        "notation": "O(time_in_window) ∧ O(person_present)",
+        "trace": "sha256:a9174bcca4a6c522"
+      },
+      "text": null,
+      "slots": {
+        "time_in_window": true,
+        "person_present": true
+      },
+      "trace_entries": [
+        {
+          "stage": "Tokenization",
+          "text": "tokenizing input",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection",
+          "text": "detecting active paradigms",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Boolean",
+          "text": "boolean",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Modal",
+          "text": "modal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Epistemic",
+          "text": "epistemic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Deontic",
+          "text": "deontic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Temporal",
+          "text": "temporal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Fuzzy",
+          "text": "fuzzy",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Probabilistic",
+          "text": "probabilistic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Paraconsistent",
+          "text": "paraconsistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "AstConstruction",
+          "text": "building AST",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting",
+          "text": "routing to engines",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "BooleanEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "decomposing connective into paradigm fragments",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-system validation",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "VerdictSynthesis",
+          "text": "confidence threshold met",
+          "outcome": "Permitted"
+        }
+      ],
+      "conflict": null,
+      "script_agrees": true
+    },
+    {
+      "v": 0,
+      "t": 1790060435700,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 21,
+      "agent": "hermes",
+      "class": "noevo",
+      "verb": "says",
+      "object": null,
+      "rung": "W2",
+      "step": "report",
+      "verdict": null,
+      "text": "Metformin, 500 mg, with breakfast."
+    },
+    {
+      "v": 0,
+      "t": 1790060436700,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 22,
+      "agent": "curator",
+      "class": "noevo",
+      "verb": "recorded",
+      "object": "MedicationStatement: metformin taken 08:04",
+      "rung": "W2",
+      "step": "record",
+      "verdict": null,
+      "text": null
+    },
+    {
+      "v": 0,
+      "t": 1790060438400,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 23,
+      "agent": "hermes",
+      "class": "noevo",
+      "verb": "says",
+      "object": null,
+      "rung": "W3",
+      "step": "request",
+      "verdict": null,
+      "text": "You asked for an appointment with Dr Ruiz next week."
+    },
+    {
+      "v": 0,
+      "t": 1790060440800,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 24,
+      "agent": "oonia",
+      "class": "noevo",
+      "verb": "routed",
+      "object": "appointment request to scheduling",
+      "rung": "W3",
+      "step": "route",
+      "verdict": null,
+      "text": null
+    },
+    {
+      "v": 0,
+      "t": 1790060441800,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 25,
+      "agent": "janus",
+      "class": "noevo",
+      "verb": "verified",
+      "object": "Athena proposal: Tuesday 10:20",
+      "rung": "W3",
+      "step": "propose",
+      "verdict": {
+        "valid": true,
+        "confidence": 255,
+        "expr": "must slot_open and must within_referral",
+        "notation": "O(slot_open) ∧ O(within_referral)",
+        "trace": "sha256:a9174bcca4a6c522"
+      },
+      "text": null,
+      "slots": {
+        "slot_open": true,
+        "within_referral": true
+      },
+      "trace_entries": [
+        {
+          "stage": "Tokenization",
+          "text": "tokenizing input",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection",
+          "text": "detecting active paradigms",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Boolean",
+          "text": "boolean",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Modal",
+          "text": "modal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Epistemic",
+          "text": "epistemic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Deontic",
+          "text": "deontic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Temporal",
+          "text": "temporal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Fuzzy",
+          "text": "fuzzy",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Probabilistic",
+          "text": "probabilistic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Paraconsistent",
+          "text": "paraconsistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "AstConstruction",
+          "text": "building AST",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting",
+          "text": "routing to engines",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "BooleanEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "decomposing connective into paradigm fragments",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-system validation",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "VerdictSynthesis",
+          "text": "confidence threshold met",
+          "outcome": "Permitted"
+        }
+      ],
+      "conflict": null,
+      "script_agrees": true
+    },
+    {
+      "v": 0,
+      "t": 1790060443500,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 26,
+      "agent": "athena",
+      "class": "evo",
+      "verb": "advises",
+      "object": "Tuesday 10:20 at the clinic",
+      "rung": "W3",
+      "step": "propose",
+      "verdict": {
+        "valid": true,
+        "confidence": 255,
+        "expr": "must slot_open and must within_referral",
+        "notation": "O(slot_open) ∧ O(within_referral)",
+        "trace": "sha256:a9174bcca4a6c522",
+        "by": 25
+      },
+      "text": null
+    },
+    {
+      "v": 0,
+      "t": 1790060445900,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 27,
+      "agent": "janus",
+      "class": "noevo",
+      "verb": "verified",
+      "object": "consent and portal access: MyChart",
+      "rung": "W3",
+      "step": "portal",
+      "verdict": {
+        "valid": true,
+        "confidence": 255,
+        "expr": "must consent_on_file and must portal_token_valid and must_not consent_withdrawn",
+        "notation": "O(consent_on_file) ∧ O(portal_token_valid) ∧ F(consent_withdrawn)",
+        "trace": "sha256:4ca7b409adb4d243"
+      },
+      "text": null,
+      "slots": {
+        "consent_on_file": true,
+        "portal_token_valid": true,
+        "consent_withdrawn": false
+      },
+      "trace_entries": [
+        {
+          "stage": "Tokenization",
+          "text": "tokenizing input",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection",
+          "text": "detecting active paradigms",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Boolean",
+          "text": "boolean",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Modal",
+          "text": "modal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Epistemic",
+          "text": "epistemic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Deontic",
+          "text": "deontic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Temporal",
+          "text": "temporal",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Fuzzy",
+          "text": "fuzzy",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Probabilistic",
+          "text": "probabilistic",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "ParadigmDetection:Paraconsistent",
+          "text": "paraconsistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "AstConstruction",
+          "text": "building AST",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting",
+          "text": "routing to engines",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "BooleanEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "decomposing connective into paradigm fragments",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "BooleanEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Boolean",
+          "text": "decomposing connective into paradigm fragments",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "EngineRouting:Deontic",
+          "text": "DeonticEngine",
+          "outcome": "Routed"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-system validation",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "CrossValidation",
+          "text": "cross-validation: consistent",
+          "outcome": "Evaluated"
+        },
+        {
+          "stage": "VerdictSynthesis",
+          "text": "confidence threshold met",
+          "outcome": "Permitted"
+        }
+      ],
+      "conflict": null,
+      "script_agrees": true
+    },
+    {
+      "v": 0,
+      "t": 1790060446900,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 28,
+      "agent": "curator",
+      "class": "noevo",
+      "verb": "recorded",
+      "object": "Appointment: Tuesday 10:20, Dr Ruiz",
+      "rung": "W3",
+      "step": "record",
+      "verdict": null,
+      "text": null
+    },
+    {
+      "v": 0,
+      "t": 1790060448600,
+      "igent": "sh-0001",
+      "session": "5c1e7a90",
+      "seq": 29,
+      "agent": "hermes",
+      "class": "noevo",
+      "verb": "says",
+      "object": null,
+      "rung": "W3",
+      "step": "report",
+      "verdict": null,
+      "text": "Booked: Tuesday at 10:20 with Dr Ruiz. It is in your calendar."
+    }
+  ],
+  "counts": {
+    "events": 29,
+    "decided": 11,
+    "permit": 9,
+    "deny": 2,
+    "script_disagreements": 0
+  },
+  "ledger_sha256": "ffbcfa5bf4987c67acd3c4904bea1862ad84d0a7d1199b68383cac7ca6abc830",
+  "generated": "2026-09-21T08:42:58.417Z"
+}

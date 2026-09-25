@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The status line — six identities, one line, URGE's verdict</title>
+<meta name="description" content="The stream-0 status line every igent renders: six named agents, one line of glyph and text per event, the verdict on it URGE's. A scripted day on the ladder W0–W3, every Janus decision evaluated in the browser.">
+<style>
+  :root {
+    --bg: #0d1117; --panel: #161b22; --border: #30363d; --device: #010409;
+    --fg: #e6edf3; --dim: #8b949e; --accent: #58a6ff;
+    --permit: #3fb950; --deny: #f85149; --warn: #d29922; --evo: #d2a8ff;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f6f8fa; --panel: #ffffff; --border: #d0d7de; --device: #1f2328;
+      --fg: #1f2328; --dim: #656d76; --accent: #0969da;
+      --permit: #1a7f37; --deny: #cf222e; --warn: #9a6700; --evo: #8250df;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .mono, .line, .json, table.six td:first-child, .trace { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h1 .v { color: var(--dim); font-weight: normal; font-size: 14px; }
+  h2 { font-size: 19px; margin: 34px 0 10px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  h3 { font-size: 16px; margin: 22px 0 8px; }
+  p.deck { font-size: 17px; margin: 0 0 18px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .dim { color: var(--dim); }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; table-layout: fixed; }
+  th, td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid var(--border); overflow-wrap: anywhere; }
+  th { color: var(--dim); font-weight: 600; }
+  table.spec th { width: 8em; }
+  table.six th:first-child, table.six td:first-child { width: 7em; }
+  .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+  .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .seg button { background: none; border: 0; color: var(--dim); padding: 6px 12px; font: inherit; font-size: 13px; cursor: pointer; }
+  .seg button + button { border-left: 1px solid var(--border); }
+  .seg button.on { background: var(--accent); color: #fff; }
+  .device { background: var(--device); color: #e6edf3; border-radius: 10px; padding: 10px 12px; margin: 8px 0; border: 1px solid var(--border); }
+  .device .line { font-size: 14px; white-space: pre; overflow-x: auto; }
+  .device .line .ok { color: var(--permit); } .device .line .no { color: var(--deny); } .device .line .wait { color: var(--warn); }
+  .device .json { font-size: 12px; white-space: pre-wrap; overflow-wrap: anywhere; color: #c9d1d9; margin: 0; }
+  .device .cap { font-size: 11px; color: #8b949e; margin-bottom: 4px; }
+  .ev { border-top: 1px solid var(--border); padding: 8px 0; }
+  .ev .meta { display: flex; gap: 10px; flex-wrap: wrap; align-items: baseline; font-size: 13px; color: var(--dim); }
+  .ev .meta b { color: var(--fg); font-weight: 600; }
+  .chip { display: inline-block; font-size: 12px; line-height: 1; padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--dim); white-space: nowrap; }
+  .chip.permit { color: var(--permit); border-color: var(--permit); }
+  .chip.deny { color: var(--deny); border-color: var(--deny); }
+  .chip.evo { color: var(--evo); border-color: var(--evo); }
+  .gate { font-size: 13px; margin-top: 4px; }
+  .gate .notation { color: var(--accent); }
+  .gate .slots { color: var(--dim); }
+  .gate .conflict { color: var(--warn); }
+  .gate .disagree { color: var(--deny); }
+  details.tr { margin-top: 4px; }
+  details.tr summary { cursor: pointer; color: var(--dim); font-size: 12px; }
+  ul.trace { list-style: none; margin: 6px 0 0; padding: 0; font-size: 12px; }
+  ul.trace li { display: flex; gap: 8px; padding: 1px 0; }
+  ul.trace .stage { color: var(--dim); min-width: 190px; flex-shrink: 0; }
+  ul.trace li.conflict .text { color: var(--warn); }
+  ul.trace li.routed .text { color: var(--accent); }
+  #error { color: var(--deny); white-space: pre-wrap; }
+  .check.ok { color: var(--permit); } .check.bad { color: var(--deny); }
+  footer { color: var(--dim); font-size: 13px; margin-top: 36px; border-top: 1px solid var(--border); padding-top: 12px; }
+  @media (max-width: 640px) {
+    table.spec th { width: 6em; }
+    table.six th:nth-child(3), table.six td:nth-child(3) { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>The status line <span class="v" id="version">loading…</span></h1>
+  <p class="deck">Six named agents operate the workflows; any device shows what they are doing as one
+    line of glyph and text, and the verdict on the line is <a href="https://github.com/toneron2/URGE">URGE</a>'s.
+    Below, a scripted day for one sensor head on the ladder W0–W3, every decision evaluated here, in the browser.</p>
+
+  <div id="error" hidden></div>
+
+  <div class="panel">
+    <table class="spec">
+      <tr><th>Shape</th><td>stream-0 event, version 0 (<a href="status-line.md">status-line.md</a>): one event, one line, one verdict</td></tr>
+      <tr><th>Judge</th><td id="judge"></td></tr>
+      <tr><th>Ladder</th><td id="counts"></td></tr>
+      <tr><th>Ledger</th><td id="ledgercheck"></td></tr>
+      <tr><th>Device</th><td>
+        <span class="seg" id="seg">
+          <button data-mode="phone" class="on">phone · 40</button>
+          <button data-mode="portlet">portlet · 80</button>
+          <button data-mode="stream">no screen · stream 0</button>
+        </span>
+        <span class="dim" id="modenote"></span>
+      </td></tr>
+    </table>
+  </div>
+
+  <h2>The six</h2>
+  <table class="six" id="six"></table>
+
+  <h2>The status bar</h2>
+  <p class="dim">The latest line per agent at the end of the day: what a portlet shows in its bar, one row per agent, in the six's order.</p>
+  <div class="device" id="bar"></div>
+
+  <h2>The day</h2>
+  <div id="rungs"></div>
+
+  <footer>
+    Identities · a layer of the TODOMODO program · the verdict engine is
+    <a href="https://github.com/toneron2/URGE">URGE</a>, running client-side; nothing leaves this page.
+  </footer>
+</div>
+
+<script type="module">
+import init, { evaluate_str, version } from "./urge/urge_wasm.js";
+import { run, line, mark, statusBar, comparable, sha256, AGENTS, RUNGS, BUDGET, VERSION } from "./ladder.mjs";
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+function fail(msg) { const e = $("error"); e.hidden = false; e.textContent = msg; }
+async function sha256Bytes(buf) {
+  const d = await crypto.subtle.digest("SHA-256", buf);
+  return [...new Uint8Array(d)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+let mode = "phone";
+let ledger = null;
+
+function coloured(ev, budget) {
+  const text = esc(line(ev, budget));
+  const m = mark(ev);
+  if (!m) return text;
+  const cls = m === "✓" ? "ok" : m === "✗" ? "no" : "wait";
+  return text.slice(0, text.length - m.length) + `<span class="${cls}">${m}</span>`;
+}
+
+function deviceView(ev) {
+  if (mode === "stream") {
+    const { slots, trace_entries, conflict, script_agrees, ...wire } = ev;
+    return `<div class="device"><div class="cap">stream 0 · ${JSON.stringify(wire).length} bytes</div><pre class="json">${esc(JSON.stringify(wire, null, 1))}</pre></div>`;
+  }
+  const budget = BUDGET[mode];
+  return `<div class="device"><div class="cap">${mode} · ${budget} characters</div><div class="line">${coloured(ev, budget)}</div></div>`;
+}
+
+function renderEvent(ev) {
+  const a = AGENTS[ev.agent];
+  let gate = "";
+  if (ev.agent === "janus" && ev.verdict) {
+    const v = ev.verdict;
+    gate = `<div class="gate">
+      <span class="chip ${v.valid ? "permit" : "deny"}">${v.valid ? "PERMIT ✓" : "DENY ✗"}</span>
+      <span class="dim">${Math.round((v.confidence / 255) * 100)}%</span>
+      <span class="mono">${esc(v.expr)}</span> → <span class="notation">${esc(v.notation)}</span>
+      <div class="slots">slots: ${Object.entries(ev.slots).map(([k, val]) => `${esc(k)}=${val}`).join(", ")} · trace ${esc(v.trace)}</div>
+      ${ev.conflict ? `<div class="conflict">cross-paradigm conflict: ${esc(ev.conflict)}</div>` : ""}
+      ${ev.script_agrees ? "" : `<div class="disagree">the script wrote "${esc(ev.verb)}" but URGE decided otherwise; the ledger shows URGE's verdict</div>`}
+      <details class="tr"><summary>URGE trace (${ev.trace_entries.length} entries)</summary><ul class="trace">${
+        ev.trace_entries.map((t) => {
+          const cls = t.text.startsWith("CONFLICT") ? "conflict" : (t.outcome === "Routed" ? "routed" : "");
+          return `<li class="${cls}"><span class="stage">[${esc(t.stage)}]</span><span class="text">${esc(t.text)}</span></li>`;
+        }).join("")}</ul></details>
+    </div>`;
+  } else if (a.class === "evo" && ev.verdict) {
+    gate = `<div class="gate"><span class="chip evo">EVO · admitted by Janus, seq ${ev.verdict.by}</span> <span class="notation">${esc(ev.verdict.notation)}</span></div>`;
+  }
+  return `<div class="ev">
+    <div class="meta"><b>${ev.seq}</b><span>${esc(ev.step)}</span><span>${a.glyph} ${a.name} · ${a.class.toUpperCase()}</span>${ev.session ? `<span>session ${esc(ev.session)}</span>` : `<span>no session yet</span>`}</div>
+    ${deviceView(ev)}
+    ${gate}
+  </div>`;
+}
+
+function render() {
+  const events = ledger.events;
+  let html = "";
+  for (const [rung, title] of Object.entries(RUNGS)) {
+    const evs = events.filter((e) => e.rung === rung);
+    if (!evs.length) continue;
+    const decided = evs.filter((e) => e.agent === "janus" && e.verdict);
+    html += `<h3>${rung} · ${esc(title)} <span class="dim" style="font-weight:normal;font-size:13px">· ${evs.length} lines, ${decided.length} decided</span></h3>`;
+    html += `<div class="panel">${evs.map(renderEvent).join("")}</div>`;
+  }
+  $("rungs").innerHTML = html;
+
+  const bar = statusBar(events);
+  const budget = mode === "stream" ? BUDGET.portlet : BUDGET[mode];
+  $("bar").innerHTML = `<div class="cap">${mode === "stream" ? "portlet" : mode} status bar · ${budget} characters · latest line per agent</div>` +
+    bar.map((ev, i) => ev
+      ? `<div class="line">${coloured(ev, budget)}</div>`
+      : `<div class="line dim">${Object.values(AGENTS)[i].glyph} ${Object.values(AGENTS)[i].name} —</div>`).join("");
+
+  $("modenote").textContent = mode === "phone" ? "a notification line: the latest event, the ledger behind a tap"
+    : mode === "portlet" ? "a status bar: the latest line per agent, the ledger beneath"
+    : "the sensor head has no screen: the event goes up stream 0 as JSON";
+}
+
+try {
+  const wasmBytes = await (await fetch("./urge/urge_wasm_bg.wasm")).arrayBuffer();
+  const wasmSha = await sha256Bytes(wasmBytes);
+  await init({ module_or_path: wasmBytes });
+  $("version").textContent = `v${VERSION} · judged by URGE v${version()}`;
+
+  $("six").innerHTML = `<tr><th>identity</th><th>does</th><th>class</th><th>verbs</th></tr>` +
+    Object.entries(AGENTS).map(([k, a]) => `<tr><td>${a.glyph} ${a.name}</td><td>${esc(a.does)}</td><td>${a.class.toUpperCase()}</td><td class="mono">${esc(({ janus: "verifying · verified · denied", oonia: "orchestrating · routed", hermes: "says", curator: "recording · recorded", athena: "advises", helios: "composed" })[k])}</td></tr>`).join("");
+
+  const ladder = await (await fetch("ladder.json", { cache: "no-store" })).json();
+  const t0 = performance.now();
+  ledger = await run(ladder, evaluate_str, { urge_version: version(), wasm_sha256: wasmSha });
+  const dt = performance.now() - t0;
+  const hash = await sha256(comparable(ledger));
+  const c = ledger.counts;
+  $("judge").innerHTML = `URGE ${esc(version())} as WebAssembly, <span class="mono">${wasmSha.slice(0, 16)}</span> · ${c.decided} decisions in ${dt.toFixed(1)} ms`;
+  $("counts").innerHTML = `igent <span class="mono">${esc(ladder.igent)}</span> · ${c.events} events on W0–W3 · ${c.permit} PERMIT, ${c.deny} DENY` +
+    (c.script_disagreements ? ` · <span class="check bad">${c.script_disagreements} where the script disagrees with URGE</span>` : "");
+  let stored = null;
+  try { stored = await (await fetch("ledger.json", { cache: "no-store" })).json(); } catch {}
+  const lc = $("ledgercheck");
+  if (!stored?.ledger_sha256) lc.innerHTML = `<span class="check bad">no ledger.json beside this page</span> · computed <span class="mono">${hash.slice(0, 16)}</span>`;
+  else if (stored.ledger_sha256 === hash) lc.innerHTML = `<span class="check ok">this page's ledger equals the one node bin/run.mjs wrote</span> · <span class="mono">${hash.slice(0, 16)}</span>, ${esc(stored.generated ?? "")}`;
+  else lc.innerHTML = `<span class="check bad">this page's ledger differs from ledger.json</span> · here <span class="mono">${hash.slice(0, 16)}</span>, file <span class="mono">${String(stored.ledger_sha256).slice(0, 16)}</span>`;
+
+  for (const b of document.querySelectorAll("#seg button")) {
+    b.onclick = () => {
+      mode = b.dataset.mode;
+      for (const o of document.querySelectorAll("#seg button")) o.classList.toggle("on", o === b);
+      render();
+    };
+  }
+  render();
+} catch (e) {
+  fail(`the page did not run: ${e.message}`);
+  throw e;
+}
+</script>
+</body>
+</html>

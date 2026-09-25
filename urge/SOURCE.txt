@@ -1,0 +1,12 @@
+URGE's browser build, copied unchanged. One source, this copy, a check per file.
+
+source     https://github.com/toneron2/URGE  docs/demo/pkg/  (built 2026-07-19, commit de88cc0; version() reports 0.1.1)
+deployed   https://toneron2.github.io/URGE/demo/pkg/urge_wasm_bg.wasm  -- the same bytes on 2026-09-21
+licence    Apache-2.0 (LICENSE beside this file is URGE's)
+copied     2026-09-21
+
+sha256
+1a33e2c60f33eb1afef6350365e9d257a3dfaae00d1a6870775e648a1c8a433d  urge_wasm_bg.wasm
+188a957ed23df0c4e61a80b2b7810fc8cc80cfae22f06b3c3b7d3241a8da7e3a  urge_wasm.js
+
+check      cd urge && sha256sum -c <(grep -E '^[0-9a-f]{64}  ' SOURCE.txt)
